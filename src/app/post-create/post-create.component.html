@@ -1,0 +1,42 @@
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Please Enter Guest Name"
+        type="text"
+        name="name"
+        ngModel
+        required
+        minlength="3"
+        #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter the guest name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Please Enter Guests Contact Details"
+        rows="4"
+        name="ContactDetails"
+        ngModel
+        required
+        #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter contact Details.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea
+          matInput
+          placeholder="Please Enter Guests Package (eg. B&B, DBB)"
+          rows="4"
+          name="Package"
+          ngModel
+          required
+          #content="ngModel"></textarea>
+        <mat-error *ngIf="content.invalid">Please enter Package, eg. Dinner, Bed & Breakfast.</mat-error>
+      </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Post</button>
+  </form>
+</mat-card>

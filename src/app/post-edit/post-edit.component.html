@@ -1,0 +1,40 @@
+<mat-card>
+  <form (submit)="onEditPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="name"
+        ngModel={{post.name}}
+        required
+        #title="ngModel"
+        >
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="Contact Details"
+        ngModel={{post.ContactDetails}}
+        required
+        #content="ngModel">
+      </textarea>
+      <mat-error *ngIf="content.invalid">Please enter some Contact Details.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea
+          matInput
+          rows="4"
+          name="Package"
+          ngModel={{post.Package}}
+          required
+          #content="ngModel">
+        </textarea>
+        <mat-error *ngIf="content.invalid">Please enter a package deal.</mat-error>
+      </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Update Post</button>
+  </form>
+</mat-card>
